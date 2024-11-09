@@ -10,6 +10,8 @@ namespace ProjectGameDev
 
         private Rectangle _deelRectangle;
 
+        private int schuifOp_X = 0;
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -22,8 +24,7 @@ namespace ProjectGameDev
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            _deelRectangle = new Rectangle(0, 0, 32, 32);
+            _deelRectangle = new Rectangle(schuifOp_X, 0, 32, 32);
             base.Initialize();
         }
 
@@ -48,11 +49,16 @@ namespace ProjectGameDev
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
             _spriteBatch.Begin();
             _spriteBatch.Draw(spriteSheet, new Vector2(0,0), _deelRectangle, Color.White);
             _spriteBatch.End();
+
+            schuifOp_X += 32;
+            if(schuifOp_X > 128)
+            {
+                schuifOp_X = 0;
+            }
+            _deelRectangle.X = schuifOp_X;
 
             base.Draw(gameTime);
         }
