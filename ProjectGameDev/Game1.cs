@@ -8,6 +8,8 @@ namespace ProjectGameDev
     {
         Texture2D spriteSheet;
 
+        private Rectangle _deelRectangle;
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -21,7 +23,7 @@ namespace ProjectGameDev
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            _deelRectangle = new Rectangle(0, 0, 32, 32);
             base.Initialize();
         }
 
@@ -49,7 +51,7 @@ namespace ProjectGameDev
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-            _spriteBatch.Draw(spriteSheet, new Vector2(0,0), Color.White);
+            _spriteBatch.Draw(spriteSheet, new Vector2(0,0), _deelRectangle, Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);

@@ -4,7 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/jonat/source/repos/ProjectGameDev/ProjectGameDev/Content/characters.png</File>
+    <File>C:/Users/jonat/source/repos/GameDev/GameDev/ProjectGameDev/Content/characters.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
