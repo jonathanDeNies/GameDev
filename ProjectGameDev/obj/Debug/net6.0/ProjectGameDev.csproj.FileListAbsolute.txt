@@ -45,9 +45,10 @@ C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\Proj
 C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectGameDev.AssemblyInfoInputs.cache
 C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectGameDev.AssemblyInfo.cs
 C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectGameDev.csproj.CoreCompileInputs.cache
-C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectGameDev.csproj.CopyComplete
 C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectGameDev.dll
 C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\refint\ProjectGameDev.dll
 C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectGameDev.pdb
 C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectGameDev.genruntimeconfig.cache
 C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ref\ProjectGameDev.dll
+C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectGameDev.sourcelink.json
+C:\Users\jonat\source\repos\GameDev\GameDev\ProjectGameDev\obj\Debug\net6.0\ProjectG.2EE90707.Up2Date
