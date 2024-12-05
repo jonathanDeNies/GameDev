@@ -1,19 +1,18 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using ProjectGameDev.interfaces;
 
 namespace ProjectGameDev
 {
     public class Game1 : Game
     {
-        Texture2D spriteSheet;
-
-        private Rectangle _deelRectangle;
-
-        private int schuifOp_X = 0;
-
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
+        private Texture2D texture;
+        Hero hero;
 
         public Game1()
         {
@@ -24,7 +23,8 @@ namespace ProjectGameDev
 
         protected override void Initialize()
         {
-            _deelRectangle = new Rectangle(schuifOp_X, 0, 32, 32);
+            
+
             base.Initialize();
         }
 
@@ -32,8 +32,14 @@ namespace ProjectGameDev
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            spriteSheet = Content.Load<Texture2D>("characters");
+            texture = Content.Load<Texture2D>("characters");
+
+            InitializeGameObjects();
+        }
+
+        private void InitializeGameObjects()
+        {
+            hero = new Hero(texture);
         }
 
         protected override void Update(GameTime gameTime)
@@ -42,6 +48,7 @@ namespace ProjectGameDev
                 Exit();
 
             // TODO: Add your update logic here
+            hero.Update();
 
             base.Update(gameTime);
         }
@@ -50,15 +57,10 @@ namespace ProjectGameDev
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
-            _spriteBatch.Draw(spriteSheet, new Vector2(0,0), _deelRectangle, Color.White);
-            _spriteBatch.End();
 
-            schuifOp_X += 32;
-            if(schuifOp_X > 128)
-            {
-                schuifOp_X = 0;
-            }
-            _deelRectangle.X = schuifOp_X;
+            hero.Draw(_spriteBatch);
+            
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
