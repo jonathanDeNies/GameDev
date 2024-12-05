@@ -11,8 +11,8 @@ namespace ProjectGameDev
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        private Texture2D texture;
-        Hero hero;
+        private Texture2D _heroTexture;
+        private Hero hero;
 
         public Game1()
         {
@@ -26,20 +26,21 @@ namespace ProjectGameDev
             
 
             base.Initialize();
+            hero = new Hero(_heroTexture);
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            texture = Content.Load<Texture2D>("characters");
+            _heroTexture = Content.Load<Texture2D>("characters");
 
             InitializeGameObjects();
         }
 
         private void InitializeGameObjects()
         {
-            hero = new Hero(texture);
+            hero = new Hero(_heroTexture);
         }
 
         protected override void Update(GameTime gameTime)
@@ -48,7 +49,7 @@ namespace ProjectGameDev
                 Exit();
 
             // TODO: Add your update logic here
-            hero.Update();
+            hero.Update(gameTime);
 
             base.Update(gameTime);
         }

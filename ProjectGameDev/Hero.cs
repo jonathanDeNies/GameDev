@@ -28,9 +28,9 @@ namespace ProjectGameDev
             animatie.addFrame(new AnimationFrame(new Rectangle(128, 0, 32, 32)));
         }
 
-        public void Update()
+        public void Update(GameTime gametime)
         {
-            animatie.Update();
+            animatie.Update(gametime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
