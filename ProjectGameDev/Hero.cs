@@ -47,6 +47,10 @@ namespace ProjectGameDev
         public void Move()
         {
             positie += snelheid;
+            if(positie.X > 800 || positie.X < 0)
+                snelheid.X *= -1;
+            if (positie.Y > 480 || positie.Y < 0)
+                snelheid.Y *= -1;
         }
     }
 }

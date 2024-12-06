@@ -23,8 +23,6 @@ namespace ProjectGameDev
 
         protected override void Initialize()
         {
-            
-
             base.Initialize();
             hero = new Hero(_heroTexture);
         }
