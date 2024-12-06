@@ -20,7 +20,7 @@ namespace ProjectGameDev
         static Animatie animation;
 
         private Vector2 positie = new Vector2(250, 250);
-        private Vector2 snelheid = new Vector2(5, 5);
+        private Vector2 snelheid = new Vector2(2,2);
 
         Vector2 v1 = new Vector2(1, 2);
         Vector2 v2 = new Vector2(3, 4);
@@ -39,8 +39,29 @@ namespace ProjectGameDev
 
         public void Update(GameTime gametime)
         {
+            KeyboardState state = Keyboard.GetState();
+            var direction = Vector2.Zero;
+
+            if (state.IsKeyDown(Keys.Left))
+            {
+                direction.X -= 1;
+            }
+            if (state.IsKeyDown(Keys.Right))
+            {
+                direction.X += 1;
+            }
+            if (state.IsKeyDown(Keys.Up))
+            {
+                direction.Y -= 1;
+            }
+            if (state.IsKeyDown(Keys.Down))
+            {
+                direction.Y += 1;
+            }
+            direction *= snelheid;
+            positie += direction;
+
             animation.Update(gametime);
-            MoveWithMouse();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -67,5 +88,13 @@ namespace ProjectGameDev
             var afTeLeggenAftsand = richting * snelheid;
             positie += afTeLeggenAftsand;
         }
+
+        //public void MoveWithKeyBoard()
+        //{
+        //    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        //    {
+        //        Exit();
+        //    }
+        //}
     }
 }
