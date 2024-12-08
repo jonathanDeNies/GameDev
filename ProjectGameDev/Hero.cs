@@ -17,11 +17,11 @@ namespace ProjectGameDev
     {
 
         private Texture2D heroTexture;
-        private IInputReader inputReader;
         private Animatie animation;
+        private IInputReader inputReader;
 
-        private Vector2 positie;
-        private Vector2 snelheid;
+        private Vector2 position;
+        private Vector2 speed;
 
 
         public Hero(Texture2D texture, IInputReader inputReader)
@@ -36,8 +36,8 @@ namespace ProjectGameDev
             animation.addFrame(new AnimationFrame(new Rectangle(96, 0, 32, 32)));
             animation.addFrame(new AnimationFrame(new Rectangle(128, 0, 32, 32)));
 
-            positie = new Vector2(250, 250);
-            snelheid = new Vector2(4, 4);
+            position = new Vector2(250, 250);
+            speed = new Vector2(4, 4);
         }
 
         public void Update(GameTime gametime)
@@ -50,14 +50,14 @@ namespace ProjectGameDev
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(heroTexture, positie, animation.CurrectFrame.Rectangle, Color.White);
+            spriteBatch.Draw(heroTexture, position, animation.CurrectFrame.Rectangle, Color.White);
         }
 
         public void Move()
         {
             Vector2 direction = inputReader.ReadInput();
-            direction *= snelheid;
-            positie += direction;
+            direction *= speed;
+            position += direction;
         }
 
         public void MoveWithMouse()
@@ -65,10 +65,10 @@ namespace ProjectGameDev
             MouseState state = Mouse.GetState();
             Vector2 mouseVector = new Vector2(state.X, state.Y);
 
-            var richting = mouseVector - positie;
+            var richting = mouseVector - position;
             richting.Normalize();
-            var afTeLeggenAftsand = richting * snelheid;
-            positie += afTeLeggenAftsand;
+            var afTeLeggenAftsand = richting * speed;
+            position += afTeLeggenAftsand;
         }
 
         //public void MoveWithKeyBoard()
