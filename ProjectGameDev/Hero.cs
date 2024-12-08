@@ -16,51 +16,35 @@ namespace ProjectGameDev
     public class Hero : IGameObject
     {
 
-        Texture2D heroTexture;
+        private Texture2D heroTexture;
+        private IInputReader inputReader;
         static Animatie animation;
 
-        private Vector2 positie = new Vector2(250, 250);
-        private Vector2 snelheid = new Vector2(2,2);
-
-        Vector2 v1 = new Vector2(1, 2);
-        Vector2 v2 = new Vector2(3, 4);
+        private Vector2 positie;
+        private Vector2 snelheid;
 
 
-        public Hero(Texture2D texture)
+        public Hero(Texture2D texture, IInputReader inputReader)
         {
-            heroTexture = texture;
+            this.heroTexture = texture;
+            this.inputReader = inputReader;
+
             animation = new Animatie();
             animation.addFrame(new AnimationFrame(new Rectangle(0, 0, 32, 32)));
             animation.addFrame(new AnimationFrame(new Rectangle(32, 0, 32, 32)));
             animation.addFrame(new AnimationFrame(new Rectangle(64, 0, 32, 32)));
             animation.addFrame(new AnimationFrame(new Rectangle(96, 0, 32, 32)));
             animation.addFrame(new AnimationFrame(new Rectangle(128, 0, 32, 32)));
+
+            positie = new Vector2(250, 250);
+            snelheid = new Vector2(4, 4);
         }
 
         public void Update(GameTime gametime)
         {
-            KeyboardState state = Keyboard.GetState();
-            var direction = Vector2.Zero;
 
-            if (state.IsKeyDown(Keys.Left))
-            {
-                direction.X -= 1;
-            }
-            if (state.IsKeyDown(Keys.Right))
-            {
-                direction.X += 1;
-            }
-            if (state.IsKeyDown(Keys.Up))
-            {
-                direction.Y -= 1;
-            }
-            if (state.IsKeyDown(Keys.Down))
-            {
-                direction.Y += 1;
-            }
-            direction *= snelheid;
-            positie += direction;
-
+            Move();
+            //MoveWithMouse();
             animation.Update(gametime);
         }
 
@@ -71,14 +55,12 @@ namespace ProjectGameDev
 
         public void Move()
         {
-            positie += snelheid;
-            if(positie.X > 800 -24 || positie.X < 0 -16)
-                snelheid.X *= -1;
-            if (positie.Y > 480 -32 || positie.Y < 0 -16)
-                snelheid.Y *= -1;
+            Vector2 direction = inputReader.ReadInput();
+            direction *= snelheid;
+            positie += direction;
         }
 
-        public void MoveWithMouse() 
+        public void MoveWithMouse()
         {
             MouseState state = Mouse.GetState();
             Vector2 mouseVector = new Vector2(state.X, state.Y);

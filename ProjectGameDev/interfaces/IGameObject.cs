@@ -7,7 +7,7 @@ using ProjectGameDev.interfaces;
 
 namespace ProjectGameDev.interfaces
 {
-    interface IGameObject
+    public interface IGameObject
     {
         void Update(GameTime gametime);
 

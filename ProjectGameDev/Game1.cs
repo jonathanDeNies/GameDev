@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using ProjectGameDev.interfaces;
+using ProjectGameDev.Input;
 
 namespace ProjectGameDev
 {
@@ -11,8 +12,8 @@ namespace ProjectGameDev
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        private Texture2D _heroTexture;
-        private Hero hero;
+        public Texture2D _heroTexture;
+        public Hero hero;
 
         public Game1()
         {
@@ -24,7 +25,7 @@ namespace ProjectGameDev
         protected override void Initialize()
         {
             base.Initialize();
-            hero = new Hero(_heroTexture);
+            hero = new Hero(_heroTexture, new KeyboardReader());
         }
 
         protected override void LoadContent()
@@ -38,7 +39,7 @@ namespace ProjectGameDev
 
         private void InitializeGameObjects()
         {
-            hero = new Hero(_heroTexture);
+            hero = new Hero(_heroTexture, new KeyboardReader());
         }
 
         protected override void Update(GameTime gameTime)
