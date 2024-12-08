@@ -18,7 +18,7 @@ namespace ProjectGameDev
 
         private Texture2D heroTexture;
         private IInputReader inputReader;
-        static Animatie animation;
+        private Animatie animation;
 
         private Vector2 positie;
         private Vector2 snelheid;
